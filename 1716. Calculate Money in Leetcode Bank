@@ -1,0 +1,24 @@
+// https://leetcode.com/problems/calculate-money-in-leetcode-bank/description/?source=submission-ac
+
+int totalMoney(int n) {
+    int return_money = 0;
+    int count_week = n / 7;
+    int day_left = n % 7;
+
+    int day_array[] = {1, 2, 3, 4, 5, 6, 7};
+
+    while(count_week > 0){
+      for (int i = 0; i < sizeof(day_array) / sizeof(day_array[0]); i++){
+        return_money += day_array[i];
+        day_array[i] += 1;
+        }
+      count_week -= 1;
+    }
+
+    for (int j = 0; j <= day_left-1; j++){
+      return_money += day_array[j];
+    }
+    
+    return return_money;
+
+}
